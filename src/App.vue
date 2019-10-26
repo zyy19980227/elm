@@ -2,7 +2,7 @@
   <div id="app">
     <v-header :seller='seller'></v-header>
     <div class="tab" border-1px>
-      <router-link tag="div" class="tab-item" to="/goods">
+      <router-link tag="div" class="tab-item" to='/goods'>
       <div class="content">商品</div>
       </router-link>
       <router-link tag="div" class="tab-item" to="/ratings">
@@ -12,28 +12,23 @@
       <div class="content">商家</div>
       </router-link>
     </div>
-    <router-view/>
+    <router-view :seller='seller' :goods='goods'/>
   </div>
 </template>
 
 <script>
 import Header from './components/header/header'
-import Goods from './components/goods/goods'
-import Ratings from './components/ratings/ratings'
-import Seller from './components/seller/seller'
 import axios from 'axios'
 export default {
   name: 'App',
   data () {
     return {
-      seller: {}
+      seller: {},
+      goods: []
     }
   },
   components: {
-    'v-header': Header,
-    'v-goods': Goods,
-    'v-rating': Ratings,
-    'v-seller': Seller
+    'v-header': Header
   },
   methods: {
     getInfo () {
@@ -45,10 +40,11 @@ export default {
       if (res.ret && res.data) {
         const data = res.data
         this.seller = data.seller
+        this.goods = data.goods
       }
     }
   },
-  mounted () {
+  created () {
     this.getInfo()
   }
 }
