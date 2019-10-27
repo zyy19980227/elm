@@ -12,7 +12,7 @@
       <div class="content">商家</div>
       </router-link>
     </div>
-    <router-view :seller='seller' :goods='goods'/>
+    <router-view :seller='seller' :goods='goods' :ratings='ratings'/>
   </div>
 </template>
 
@@ -24,7 +24,8 @@ export default {
   data () {
     return {
       seller: {},
-      goods: []
+      goods: [],
+      ratings: []
     }
   },
   components: {
@@ -41,6 +42,7 @@ export default {
         const data = res.data
         this.seller = data.seller
         this.goods = data.goods
+        this.ratings = data.ratings
       }
     }
   },
