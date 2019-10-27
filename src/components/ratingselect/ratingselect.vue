@@ -92,6 +92,7 @@ export default {
                 font-size 12px
                 &.active
                     color #fff
+                    transition all 1s
                 .count
                     margin-left 2px
                     font-size 8px
@@ -113,6 +114,7 @@ export default {
             &.on
                 .iconfont
                     color #00c850
+                    transition all 0.5s
             .iconfont
                 display inline-block
                 vertical-align top

@@ -28,7 +28,7 @@
       <ratingselect :ratings='ratings' :select-type='selectType' :only-content='onlyContent' @increment="datachange"></ratingselect>
       <div class="rating-wrapper">
         <ul>
-          <li v-for="(rating,index) of ratings" :key="index" class="rating-item" v-show="needShow(rating.rateType,rating.text)">
+          <li v-for="(rating,id) in ratings" :key="id" class="rating-item" v-show="needShow(rating.rateType,rating.text)">
             <div class="avatar">
               <img :src="rating.avatar" width="28" height="28" class="img">
             </div>

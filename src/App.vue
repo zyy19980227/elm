@@ -12,7 +12,9 @@
       <div class="content">商家</div>
       </router-link>
     </div>
-    <router-view :seller='seller' :goods='goods' :ratings='ratings'/>
+    <keep-alive>
+      <router-view :seller='seller' :goods='goods' :ratings='ratings'/>
+    </keep-alive>
   </div>
 </template>
 
